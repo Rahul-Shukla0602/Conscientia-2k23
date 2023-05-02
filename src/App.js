@@ -11,10 +11,13 @@ import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import Merchandise from './Pages/Merchandise';
+import Preloader from "./components/Preloader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return(
+    <>
+    <Preloader/>
     <div className="bg-[url('./images/cosmic2.png')] w-full h-screen bg-no-repeat bg-center bg-fixed bg-cover">
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
     <Routes>
@@ -29,6 +32,7 @@ function App() {
           <Route path="/merchandise" element={<Merchandise/>}/>
     </Routes>
     </div>
+    </>
   );
 }
 
