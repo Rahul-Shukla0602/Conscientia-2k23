@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useEffect, useState} from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Navbar from './components/Navbar';
@@ -15,9 +15,17 @@ import Preloader from "./components/Preloader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [preloader, setPreloader] = useState("visible");
+
+  setTimeout(() => {
+    setPreloader("hidden");
+  }, 4000);
+
   return(
     <>
+    <div className={preloader}>
     <Preloader/>
+    </div>
     <div className="bg-[url('./images/cosmic2.png')] w-full h-screen bg-no-repeat bg-center bg-fixed bg-cover">
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
     <Routes>
