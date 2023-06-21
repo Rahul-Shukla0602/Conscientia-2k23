@@ -6,7 +6,7 @@ function Navbar(props) {
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
   return (
-    <div className='flex items-center justify-between w-11/12 max-w-[1160px] py-2 mx-auto gap-46'>
+    <div className=' flex items-center justify-between w-11/12 max-w-[1160px] py-2 mx-auto gap-46'>
         <Link to='/'>
             <img src={logo} alt="LOGO"  width={160} height={32} loading="lazy"/>
         </Link>

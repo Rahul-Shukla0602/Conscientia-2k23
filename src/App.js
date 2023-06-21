@@ -16,9 +16,11 @@ import Preloader from "./components/Preloader";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [preloader, setPreloader] = useState("visible");
+  const [maincontent, setmaincontent] = useState("hidden");
 
   setTimeout(() => {
     setPreloader("hidden");
+    setmaincontent("visible");
   }, 4000);
 
   return(
@@ -26,8 +28,10 @@ function App() {
     <div className={preloader}>
     <Preloader/>
     </div>
-    <div className="bg-[url('./images/cosmic2.png')] w-full h-screen bg-no-repeat bg-center bg-fixed bg-cover">
+    <div className={maincontent}>
+    <div className="z-50 bg-opacity-60 bg-slate-800 fixed left-0 top-0 w-screen">
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+    </div>
     <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/events' element={<Events/>}/>
