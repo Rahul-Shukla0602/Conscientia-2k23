@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import Navbar from './components/Navbar';
 import Home from './Pages/Home';
@@ -15,13 +15,16 @@ import Preloader from "./components/Preloader";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [preloader, setPreloader] = useState("visible");
-  const [maincontent, setmaincontent] = useState("hidden");
+  // const [preloader, setPreloader] = useState("visible fixed left-0 top-0 w-full");
+  // const [maincontent, setmaincontent] = useState("invisible h-0");
+  const [preloader, setPreloader] = useState("visible fixed left-0 top-0 w-full");
+  const [maincontent, setmaincontent] = useState("invisible");
 
   setTimeout(() => {
     setPreloader("hidden");
     setmaincontent("visible");
   }, 4000);
+  
 
   return(
     <>
@@ -30,7 +33,7 @@ function App() {
     </div>
     <div className={maincontent}>
     <div className="z-50 bg-opacity-60 bg-slate-800 fixed left-0 top-0 w-screen">
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+    <Navbar/>
     </div>
     <Routes>
           <Route path='/' element={<Home/>}/>
